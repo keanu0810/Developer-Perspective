@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>ID 찾기</title>
+    <style>
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .member-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .member-info input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .member-info button {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .member-info button:hover {
+            background-color: #333;
+        }
+
+        .member-info a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .member-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form action="/findId" method="post" class="login-form">
+            <h1>ID 찾기</h1>
+            <div class="member-info">
+                <input type="text" th:field="${login.login_email}" placeholder="등록한 이메일을 입력하세요"><br>
+                <button type="submit">ID 찾기</button>
+                <a href="/findPassword" style="color: #000;">비밀번호 찾기</a>
+                <a href="#" style="color: #000;">회원가입</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

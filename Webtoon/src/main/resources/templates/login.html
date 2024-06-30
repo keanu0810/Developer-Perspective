@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>웹툰 푸터 예제</title>
+<style>
+/* Reset CSS */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.login-form {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 300px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.login-form h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.login-form .member-info input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.login-form .member-info button {
+	width: 100%;
+	padding: 10px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.login-form .member-info button:hover {
+	background-color: #333;
+}
+
+.login-form .member-info a {
+	margin-right: 10px;
+	color: #333;
+	text-decoration: none;
+}
+
+.login-form .member-info a:hover {
+	text-decoration: underline;
+}
+
+.site-footer {
+	background-color: #333;
+	color: #fff;
+	padding: 20px 0;
+	font-size: 14px;
+	text-align: center;
+}
+
+.footer-links ul, .additional-links {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links ul li, .additional-links li {
+	display: inline;
+	margin-right: 15px;
+}
+
+.footer-links ul li a, .additional-links li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer-links ul li a:hover, .additional-links li a:hover {
+	text-decoration: underline;
+}
+
+.company-info {
+	color: #ccc;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+ .error_m{
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+	<!-- 로그인 폼 -->
+<div class="login-container">
+    <form action="/login" method="post" class="login-form">
+        <h1>로그인</h1>
+        <div class="member-info">
+            <input type="text" th:field="${login.login_id}" placeholder="아이디"><br>
+            <input type="password" th:field="${login.login_pw}" placeholder="비밀번호"><br>
+            <button type="submit">로그인</button>
+            <a href="#">회원가입</a>
+            <a href="/findId.html" class="btn btn-outline btn-info">ID 찾기</a>
+            <a href="/sfPass.html" class="btn btn-outline btn-info">비밀번호 찾기</a>
+        </div>
+    </form>
+    <div th:if="${error}" class="error_m">
+        <p th:text="${error}"></p>
+    </div>
+</div>
+
+
+	<!-- 푸터 -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-links">
+				<ul>
+					<li><a href="footer/전지적개발자시점이용약관.html">전지적개발자시점 이용약관</a></li>
+					<li><a href="footer/전용삼풍권.html">전용상품권 이용약관</a></li>
+					<li><a href="footer/개인정보처리방침.html">개인정보처리방침</a></li>
+					<li><a href="footer/청소년보호정책.html">청소년보호정책</a></li>
+					<li><a href="footer/책임한계와법적고지.html">책임한계와 법적고치</a></li>
+
+
+				</ul>
+			</div>
+			<div class="copyright">
+				<p>ⓒ 전지적 개발자 시점.</p>
+			</div>
+
+		</div>
+		<div class="container">
+			<ul class="additional-links">
+				<li><a href="#">전시적개발시점 사업자등록번호 175-00-967982</a></li>
+				<li>이메일 kh0404@naver.com 호스트 제공 KH개발
+				<li>고객센터 1142-1142</li>
+				<li>1 : 1 문의</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>
